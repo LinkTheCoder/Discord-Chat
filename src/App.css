@@ -1,0 +1,155 @@
+/* global styles */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  font-size: 16px;
+  font-family: sans-serif;
+  background-color: #313338;
+}
+
+button,
+input {
+  cursor: pointer;
+}
+
+.App {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* navbar */
+.nav-bar {
+  padding: 10px 30px;
+  color: white;
+  height: 60px;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.sign-in {
+  border: none;
+  background-color: transparent;
+}
+
+.sign-in > img {
+  height: 30px;
+  width: auto;
+}
+
+
+/* welcome page */
+.welcome {
+  font-family: "Rubik Mono One", monospace;
+  height: 100vh;
+  padding: 30px;
+  text-align: left;
+  margin-top: 0; /* Remove margin-top to center the content */
+  color: white;
+  background-image: url('./img/bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.welcome :is(h2, p, img) {
+  margin-bottom: 20px;
+}
+
+/* chat component */
+.messages-wrapper {
+  padding: 30px;
+  margin-bottom: 60px;
+}
+
+.chat-bubble {
+  border-radius: 20px 20px 20px 0;
+  padding: 15px;
+  color: white;
+  width: max-content;
+  max-width: calc(100% - 50px);
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 20px;
+}
+
+.chat-bubble.right {
+  margin: auto;
+  margin-bottom: 10px;
+  border-radius: 20px 20px 0 20px;
+}
+
+.chat-bubble__left {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-name {
+  margin-bottom: 5px;
+  font-size: 1.1rem;
+  color: white;
+}
+
+.user-message {
+  word-break: break-all;
+}
+
+.message-time {
+  display: block;
+  text-align: right;
+}
+
+/* send message */
+.send-message {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  padding: 20px 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.send-message > input {
+  height: 40px;
+  padding: 10px 10px;
+  border-radius: 5px 5px 5px 5px;
+  border: none;
+  flex-grow: 1;
+  background-color: #383a40;
+  color: white;
+  font-size: 1rem;
+}
+
+.send-message > input:placeholder {
+  color: #ddd;
+}
+
+.new-day-separator {
+  width:60%;
+  border: 0;
+  height: 1px;
+  background: #7d7d7d;
+  margin: 20px auto;
+}
+
+
+
