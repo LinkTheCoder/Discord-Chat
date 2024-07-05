@@ -1,14 +1,15 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
+import config from "../src/config.json";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyD6f6A_90BYfCv7fqa2L-LeRsuuJ8FgSAA",
-  authDomain: "discord-chat-c26eb.firebaseapp.com",
-  projectId: "discord-chat-c26eb",
-  storageBucket: "discord-chat-c26eb.appspot.com",
-  messagingSenderId: "150003553763",
-  appId: "1:150003553763:web:18c2a11709524c85063cd6"
+  apiKey: config.apiKey,
+  authDomain: config.authDomain,
+  projectId: config.projectId,
+  storageBucket: config.storageBucket,
+  messagingSenderId: config.messagingSenderId,
+  appId: config.appId
 };
 
 // Initialize Firebase
