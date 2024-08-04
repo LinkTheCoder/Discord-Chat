@@ -24,14 +24,20 @@ const ChatBox = () => {
     const unsubscribe = onSnapshot(q, (QuerySnapshot) => {
       const fetchedMessages = [];
       QuerySnapshot.forEach((doc) => {
-        fetchedMessages.push({ ...doc.data(), id: doc.id });
+        const data = doc.data();
+        // Ensure each message has a valid createdAt timestamp
+        if (data.createdAt && typeof data.createdAt.seconds === 'number') {
+          fetchedMessages.push({ ...data, id: doc.id });
+        }
       });
+      // Sort messages by createdAt if valid
       const sortedMessages = fetchedMessages.sort(
         (a, b) => a.createdAt.seconds - b.createdAt.seconds
       );
       setMessages(sortedMessages);
     });
-    return () => unsubscribe;
+
+    return () => unsubscribe();
   }, []);
 
   return (
@@ -45,7 +51,6 @@ const ChatBox = () => {
           />
         ))}
       </div>
-      {/* when a new message enters the chat, the screen scrolls down to the scroll div */}
       <span ref={scroll}></span>
       <SendMessage scroll={scroll} />
     </main>
